@@ -28,7 +28,8 @@ class SearchVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         //runs every time the view will appear
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
+        //navigationController?.isNavigationBarHidden = true
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     @objc func pushToFollowerListVC() {
