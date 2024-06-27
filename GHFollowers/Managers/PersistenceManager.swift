@@ -19,26 +19,21 @@ enum PersistenceManager {
     }
     
     static func updateWith(favorite: Follower, actionType: PersistenceActionType, completed: @escaping (GFError?) -> Void) {
-        //regardless of adding or removing we need to get the array
         retrieveFavorites { result in
             switch result {
-            case .success(let favorites):
-                var retrievedFavorites = favorites
-                
+            case .success(var favorites):
                 switch actionType {
                 case .add:
-                    guard !retrievedFavorites.contains(favorite) else {
+                    guard !favorites.contains(favorite) else {
                         completed(.alreadyInFavorites)
                         return
                     }
-                    retrievedFavorites.append(favorite)
+                    favorites.append(favorite)
                 
                 case .remove:
-                    retrievedFavorites.removeAll { $0.login == favorite.login }
+                    favorites.removeAll { $0.login == favorite.login }
                 }
-                
-                //we need to save the new array to UserDefaults
-                completed(save(favorites: retrievedFavorites))
+                completed(save(favorites: favorites))
                 
             case .failure(let error):
                 completed(error)
@@ -66,7 +61,7 @@ enum PersistenceManager {
             let encoder = JSONEncoder()
             let encodedFavorites = try encoder.encode(favorites)
             defaults.set(encodedFavorites, forKey: Keys.favorites)
-            return nil //no error
+            return nil
         } catch {
             return .unableToFavorite
         }
