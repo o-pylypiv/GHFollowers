@@ -44,6 +44,7 @@
 		EB76F5272C2491BF0070E18A /* GFTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5262C2491BF0070E18A /* GFTabBarController.swift */; };
 		EB76F5292C2B186D0070E18A /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5282C2B186D0070E18A /* GFDataLoadingVC.swift */; };
 		EB76F52B2C2C87710070E18A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52A2C2C87710070E18A /* UIView+Ext.swift */; };
+		EB76F52E2C2EB5720070E18A /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52D2C2EB5720070E18A /* FollowerView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +87,7 @@
 		EB76F5262C2491BF0070E18A /* GFTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFTabBarController.swift; sourceTree = "<group>"; };
 		EB76F5282C2B186D0070E18A /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
 		EB76F52A2C2C87710070E18A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		EB76F52D2C2EB5720070E18A /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,7 +211,7 @@
 		EB76F4FB2C19B4610070E18A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EB76F4FC2C19B49D0070E18A /* FollowerCell.swift */,
+				EB76F52C2C2EB5580070E18A /* FollowerCell */,
 				EB76F5232C24704D0070E18A /* FavoriteCell.swift */,
 			);
 			path = Cells;
@@ -286,6 +288,15 @@
 				EB76F5262C2491BF0070E18A /* GFTabBarController.swift */,
 			);
 			path = TabBarControllers;
+			sourceTree = "<group>";
+		};
+		EB76F52C2C2EB5580070E18A /* FollowerCell */ = {
+			isa = PBXGroup;
+			children = (
+				EB76F4FC2C19B49D0070E18A /* FollowerCell.swift */,
+				EB76F52D2C2EB5720070E18A /* FollowerView.swift */,
+			);
+			path = FollowerCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,6 +399,7 @@
 				EB76F51E2C2095320070E18A /* Date+Ext.swift in Sources */,
 				EB76F4F72C1890E70070E18A /* NetworkManager.swift in Sources */,
 				EB76F4DD2C1201430070E18A /* GFTextField.swift in Sources */,
+				EB76F52E2C2EB5720070E18A /* FollowerView.swift in Sources */,
 				EB76F5152C1CA6D60070E18A /* GFItemInfoView.swift in Sources */,
 				EB76F4E32C1745180070E18A /* GFBodyLabel.swift in Sources */,
 				EB76F52B2C2C87710070E18A /* UIView+Ext.swift in Sources */,
@@ -542,6 +554,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +585,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

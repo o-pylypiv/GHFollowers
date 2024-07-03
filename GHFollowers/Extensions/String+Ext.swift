@@ -8,10 +8,11 @@
 import Foundation
 
 extension String {
+    
     func convertToDate() -> Date? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        dateFormatter.locale = Locale(identifier: "uk_UA") //"en_us_POSIX"
+        dateFormatter.locale = Locale(identifier: "uk_UA") 
         dateFormatter.timeZone = .current
         
         return dateFormatter.date(from: self)

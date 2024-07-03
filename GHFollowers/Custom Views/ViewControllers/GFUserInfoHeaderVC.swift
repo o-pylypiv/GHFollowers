@@ -33,6 +33,7 @@ class GFUserInfoHeaderVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubviews(avatarImageView, usernameLabel, nameLabel, locationImageView, locationLabel, bioLabel)
+        avatarImageView.downloadAvatarImage(fromURL: user.avatarUrl)
         
         configureAvatarImageView()
         configureUsernameLabel()
@@ -42,12 +43,7 @@ class GFUserInfoHeaderVC: UIViewController {
         configureBioLabel()
     }
     
-    func configureAvatarImageView() {
-        NetworkManager.shared.downloadImage(from: user.avatarUrl) { [weak self] image in
-            guard let self = self else {return}
-            DispatchQueue.main.async { self.avatarImageView.image = image }
-        }
-        
+    func configureAvatarImageView() {        
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: view.topAnchor, constant: padding),
             avatarImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

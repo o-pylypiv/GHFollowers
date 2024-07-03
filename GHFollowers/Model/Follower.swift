@@ -9,6 +9,5 @@ import Foundation
 
 struct Follower: Codable, Hashable {
     var login: String
-    //var avatar_url: String //can be converted to camelCase
     var avatarUrl: String
 }
