@@ -40,7 +40,6 @@ class SearchVC: UIViewController {
         usernameTextField.resignFirstResponder()
         
         let followerListVC = FollowerListVC(username: usernameTextField.text!)
-        
         navigationController?.pushViewController(followerListVC, animated: true)
     }
     
@@ -93,6 +92,6 @@ extension SearchVC: UITextFieldDelegate {
     }
 }
 
-#Preview {
-    SearchVC()
-}
+//#Preview {
+//    SearchVC()
+//}

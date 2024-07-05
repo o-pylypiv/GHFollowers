@@ -45,7 +45,20 @@
 		EB76F5292C2B186D0070E18A /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5282C2B186D0070E18A /* GFDataLoadingVC.swift */; };
 		EB76F52B2C2C87710070E18A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52A2C2C87710070E18A /* UIView+Ext.swift */; };
 		EB76F52E2C2EB5720070E18A /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52D2C2EB5720070E18A /* FollowerView.swift */; };
+		EB76F5362C3592810070E18A /* GHFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5352C3592810070E18A /* GHFollowersTests.swift */; };
+		EB76F53F2C370A900070E18A /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */; };
+		EB76F5432C3807AD0070E18A /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5422C3807AD0070E18A /* MockURLSession.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EB76F5372C3592810070E18A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EB76F4B72C11CFC90070E18A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EB76F4BE2C11CFC90070E18A;
+			remoteInfo = GHFollowers;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		EB76F4BF2C11CFC90070E18A /* GHFollowers.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GHFollowers.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,10 +101,21 @@
 		EB76F5282C2B186D0070E18A /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
 		EB76F52A2C2C87710070E18A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		EB76F52D2C2EB5720070E18A /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
+		EB76F5332C3592810070E18A /* GHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB76F5352C3592810070E18A /* GHFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersTests.swift; sourceTree = "<group>"; };
+		EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
+		EB76F5422C3807AD0070E18A /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EB76F4BC2C11CFC90070E18A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB76F5302C3592800070E18A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -105,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				EB76F4C12C11CFC90070E18A /* GHFollowers */,
+				EB76F5342C3592810070E18A /* GHFollowersTests */,
 				EB76F4C02C11CFC90070E18A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -113,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				EB76F4BF2C11CFC90070E18A /* GHFollowers.app */,
+				EB76F5332C3592810070E18A /* GHFollowersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -204,6 +230,7 @@
 				EB76F5002C19F6440070E18A /* UIHelper.swift */,
 				EB76F50C2C1C397F0070E18A /* GFError.swift */,
 				EB76F5122C1C569F0070E18A /* Constants.swift */,
+				EB76F5422C3807AD0070E18A /* MockURLSession.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -299,6 +326,15 @@
 			path = FollowerCell;
 			sourceTree = "<group>";
 		};
+		EB76F5342C3592810070E18A /* GHFollowersTests */ = {
+			isa = PBXGroup;
+			children = (
+				EB76F5352C3592810070E18A /* GHFollowersTests.swift */,
+				EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */,
+			);
+			path = GHFollowersTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -319,6 +355,24 @@
 			productReference = EB76F4BF2C11CFC90070E18A /* GHFollowers.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EB76F5322C3592800070E18A /* GHFollowersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EB76F5392C3592810070E18A /* Build configuration list for PBXNativeTarget "GHFollowersTests" */;
+			buildPhases = (
+				EB76F52F2C3592800070E18A /* Sources */,
+				EB76F5302C3592800070E18A /* Frameworks */,
+				EB76F5312C3592800070E18A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EB76F5382C3592810070E18A /* PBXTargetDependency */,
+			);
+			name = GHFollowersTests;
+			productName = GHFollowersTests;
+			productReference = EB76F5332C3592810070E18A /* GHFollowersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -331,6 +385,10 @@
 				TargetAttributes = {
 					EB76F4BE2C11CFC90070E18A = {
 						CreatedOnToolsVersion = 15.4;
+					};
+					EB76F5322C3592800070E18A = {
+						CreatedOnToolsVersion = 15.4;
+						TestTargetID = EB76F4BE2C11CFC90070E18A;
 					};
 				};
 			};
@@ -348,6 +406,7 @@
 			projectRoot = "";
 			targets = (
 				EB76F4BE2C11CFC90070E18A /* GHFollowers */,
+				EB76F5322C3592800070E18A /* GHFollowersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -359,6 +418,13 @@
 			files = (
 				EB76F4CC2C11CFCA0070E18A /* Assets.xcassets in Resources */,
 				EB76F4CF2C11CFCA0070E18A /* Base in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB76F5312C3592800070E18A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +446,7 @@
 				EB76F5112C1C47DA0070E18A /* GFSecondaryTitleLabel.swift in Sources */,
 				EB76F4C32C11CFC90070E18A /* AppDelegate.swift in Sources */,
 				EB76F4F42C186D550070E18A /* User.swift in Sources */,
+				EB76F5432C3807AD0070E18A /* MockURLSession.swift in Sources */,
 				EB76F50D2C1C397F0070E18A /* GFError.swift in Sources */,
 				EB76F4FD2C19B49D0070E18A /* FollowerCell.swift in Sources */,
 				EB76F5222C2325D20070E18A /* PersistenceManager.swift in Sources */,
@@ -408,7 +475,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EB76F52F2C3592800070E18A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB76F53F2C370A900070E18A /* NetworkManagerTests.swift in Sources */,
+				EB76F5362C3592810070E18A /* GHFollowersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EB76F5382C3592810070E18A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EB76F4BE2C11CFC90070E18A /* GHFollowers */;
+			targetProxy = EB76F5372C3592810070E18A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EB76F4CD2C11CFCA0070E18A /* LaunchScreen.storyboard */ = {
@@ -603,6 +687,42 @@
 			};
 			name = Release;
 		};
+		EB76F53A2C3592810070E18A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF6UJT876G;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GHFollowersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHFollowers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GHFollowers";
+			};
+			name = Debug;
+		};
+		EB76F53B2C3592810070E18A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GF6UJT876G;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.GHFollowersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/GHFollowers.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/GHFollowers";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -620,6 +740,15 @@
 			buildConfigurations = (
 				EB76F4D42C11CFCA0070E18A /* Debug */,
 				EB76F4D52C11CFCA0070E18A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EB76F5392C3592810070E18A /* Build configuration list for PBXNativeTarget "GHFollowersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EB76F53A2C3592810070E18A /* Debug */,
+				EB76F53B2C3592810070E18A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
