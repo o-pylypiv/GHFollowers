@@ -83,6 +83,69 @@ final class NetworkManagerTests: XCTestCase {
         XCTAssertEqual(followers.first?.avatarUrl, "https://example.com/avatar.png")
     }
     
+    func testGetFollowers_Failure() async {
+        // Arrange
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: "https://api.github.com/users/johndoe/followers?per_page=100&page=1")!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        var followers: [Follower]? = nil
+        
+        // Act
+        do {
+            followers = try await networkManager.getFollowers(for: "johndoe", page: 1)
+            XCTFail("Expected error")
+        } catch {
+            // Assert
+            XCTAssertNil(followers)
+        }
+    }
+    
+    func testGetFollowers_InvalidJSONData() async {
+        // Arrange
+        let invalidJsonData = Data("Invalid JSON".utf8)
+        mockURLSession.nextData = invalidJsonData
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: "https://api.github.com/users/johndoe/followers?per_page=100&page=1")!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        
+        // Act
+        do {
+            _ = try await networkManager.getFollowers(for: "johndoe", page: 1)
+            XCTFail("Expected error")
+        } catch {
+            // Assert
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetFollowers_EmptyArray() async {
+        // Arrange
+        let emptyJsonData = Data("[]".utf8)
+        mockURLSession.nextData = emptyJsonData
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: "https://api.github.com/users/johndoe/followers?per_page=100&page=1")!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        
+        // Act
+        do {
+            _ = try await networkManager.getFollowers(for: "johndoe", page: 1)
+            XCTFail("Expected error")
+        } catch {
+            // Assert
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetFollowers_FailedRequest() async {
+        // Arrange
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = nil
+        
+        // Act and Assert
+        do {
+            _ = try await networkManager.getFollowers(for: "johndoe", page: 1)
+            XCTFail("Expected error")
+        } catch {
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    
     func testGetUserInfo_Success() async throws {
         // Arrange
         let jsonString = """
@@ -120,6 +183,51 @@ final class NetworkManagerTests: XCTestCase {
         XCTAssertEqual(user.followers, 8)
     }
     
+    func testGetUserInfo_Failure() async {
+        // Arrange
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: "https://api.github.com/users/johndoe")!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        
+        // Act and Assert
+        do {
+            _ = try await networkManager.getUserInfo(for: "johndoe")
+            XCTFail("Expected error")
+        } catch {
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetUserInfo_InvalidJSON() async {
+        // Arrange
+        let invalidJsonData = Data("Invalid JSON".utf8)
+        mockURLSession.nextData = invalidJsonData
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: "https://api.github.com/users/johndoe/followers?per_page=100&page=1")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+        
+        // Act
+        do {
+            _ = try await networkManager.getUserInfo(for: "johndoe")
+            XCTFail("Expected error")
+        } catch {
+            // Assert
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    func testGetUserInfo_FailedRequest() async {
+        // Arrange
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = nil
+        
+        // Act and Assert
+        do {
+            _ = try await networkManager.getUserInfo(for: "johndoe")
+            XCTFail("Expected error")
+        } catch {
+            XCTAssertNotNil(error)
+        }
+    }
+    
+    
     func testDownloadImage_Success() async {
         // Arrange
         let imageUrlString = "https://via.placeholder.com/100x100"
@@ -135,5 +243,31 @@ final class NetworkManagerTests: XCTestCase {
         // Assert
         XCTAssertNotNil(downloadedImage)
         XCTAssertEqual(networkManager.cache.object(forKey: NSString(string: imageUrlString)), downloadedImage)
+    }
+    
+    func testDownloadImage_Failure() async {
+        // Arrange
+        let imageUrlString = "https://non-existent-url.com"
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = HTTPURLResponse(url: URL(string: imageUrlString)!, statusCode: 404, httpVersion: nil, headerFields: nil)
+        
+        // Act
+        let downloadedImage = await networkManager.downloadImage(from: imageUrlString)
+        
+        // Assert
+        XCTAssertNil(downloadedImage)
+    }
+    
+    func testDownloadImage_FailedRequest() async {
+        // Arrange
+        let imageUrlString = "https://non-existent-url.com"
+        mockURLSession.nextData = nil
+        mockURLSession.nextResponse = nil
+        
+        // Act
+        let downloadedImage = await networkManager.downloadImage(from: imageUrlString)
+        
+        // Assert
+        XCTAssertNil(downloadedImage)
     }
 }

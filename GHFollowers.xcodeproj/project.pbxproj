@@ -45,7 +45,6 @@
 		EB76F5292C2B186D0070E18A /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5282C2B186D0070E18A /* GFDataLoadingVC.swift */; };
 		EB76F52B2C2C87710070E18A /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52A2C2C87710070E18A /* UIView+Ext.swift */; };
 		EB76F52E2C2EB5720070E18A /* FollowerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F52D2C2EB5720070E18A /* FollowerView.swift */; };
-		EB76F5362C3592810070E18A /* GHFollowersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5352C3592810070E18A /* GHFollowersTests.swift */; };
 		EB76F53F2C370A900070E18A /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */; };
 		EB76F5432C3807AD0070E18A /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB76F5422C3807AD0070E18A /* MockURLSession.swift */; };
 /* End PBXBuildFile section */
@@ -102,7 +101,6 @@
 		EB76F52A2C2C87710070E18A /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		EB76F52D2C2EB5720070E18A /* FollowerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowerView.swift; sourceTree = "<group>"; };
 		EB76F5332C3592810070E18A /* GHFollowersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GHFollowersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB76F5352C3592810070E18A /* GHFollowersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GHFollowersTests.swift; sourceTree = "<group>"; };
 		EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		EB76F5422C3807AD0070E18A /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -329,7 +327,6 @@
 		EB76F5342C3592810070E18A /* GHFollowersTests */ = {
 			isa = PBXGroup;
 			children = (
-				EB76F5352C3592810070E18A /* GHFollowersTests.swift */,
 				EB76F53E2C370A900070E18A /* NetworkManagerTests.swift */,
 			);
 			path = GHFollowersTests;
@@ -480,7 +477,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB76F53F2C370A900070E18A /* NetworkManagerTests.swift in Sources */,
-				EB76F5362C3592810070E18A /* GHFollowersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
